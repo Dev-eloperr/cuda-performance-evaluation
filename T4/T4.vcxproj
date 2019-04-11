@@ -80,9 +80,17 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <CudaCompile Include="kernel.cu" />
+    <CudaCompile Include="VectorAdditionBenchmarker.cu" />
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Benchmarker.h" />
+    <ClInclude Include="VectorAdditionBenchmarker.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Benchmarker.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
