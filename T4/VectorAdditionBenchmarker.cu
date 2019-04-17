@@ -24,11 +24,12 @@ namespace {
 		}
 		else {
 			threadsPerBlock = 512;
-			blocksPerGrid = ceil(double(size) / double(threadsPerBlock));
+			blocksPerGrid = (size_t) ceil(double(size) / double(threadsPerBlock));
 		}
 
 		auto startTime = std::chrono::high_resolution_clock::now();
 		::kernel_sum <<<blocksPerGrid, threadsPerBlock>>> (a, b, sum, size);
+		cudaDeviceSynchronize();
 		auto endTime = std::chrono::high_resolution_clock::now();
 		return endTime - startTime;
 	}
