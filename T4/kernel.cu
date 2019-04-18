@@ -8,6 +8,7 @@
 
 #include "VectorAdditionBenchmarker.h"
 #include "FastFourierTransformBenchmarker.h"
+#include "LinearSearch.h"
 
 namespace {
 	template <typename T>
@@ -26,7 +27,8 @@ namespace {
 }
 
 int main() {
-	runBenchmark<VectorAdditionBenchmarker>("Vector addition");
-	runBenchmark<FastFourierTransformBenchmarker>("Fast fourier transform");
+	//runBenchmark<VectorAdditionBenchmarker>("Vector addition");
+	//runBenchmark<FastFourierTransformBenchmarker>("Fast fourier transform");
+	runBenchmark<LinearSearch>("Linear Search");
 }
 

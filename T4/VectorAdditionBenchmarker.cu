@@ -21,8 +21,7 @@ namespace {
 		if (size < 512) {
 			threadsPerBlock = size;
 			blocksPerGrid = 1;
-		}
-		else {
+		} else {
 			threadsPerBlock = 512;
 			blocksPerGrid = (size_t) ceil(double(size) / double(threadsPerBlock));
 		}
