@@ -27,8 +27,8 @@ namespace {
 }
 
 int main() {
-	//runBenchmark<VectorAdditionBenchmarker>("Vector addition");
-	//runBenchmark<FastFourierTransformBenchmarker>("Fast fourier transform");
+	runBenchmark<VectorAdditionBenchmarker>("Vector addition");
+	runBenchmark<FastFourierTransformBenchmarker>("Fast fourier transform");
 	runBenchmark<LinearSearch>("Linear Search");
 }
 

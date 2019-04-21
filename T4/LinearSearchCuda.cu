@@ -73,14 +73,10 @@ std::chrono::high_resolution_clock::duration LinearSearch::runGpu()
 	}
 	int randIndex = std::abs(static_cast<long>(rand())) % arraySize;
 	cudaDeviceSynchronize();
-	cudaEvent_t start, stop;
-	cudaEventCreate(&start);
-	cudaEventCreate(&stop);
-	cudaEventRecord(start);
+	auto start = std::chrono::high_resolution_clock::now();
 	::searchWithCuda << <blocksPerGrid, threadsPerBlock >> > (gpuArray, arraySize, arr.get()[randIndex]);
-	cudaEventRecord(stop);
+	cudaDeviceSynchronize();
+	auto end = std::chrono::high_resolution_clock::now();
 	cudaFree(gpuArray);
-	float elapsedTime;
-	cudaEventElapsedTime(&elapsedTime, start, stop);
-	return std::chrono::high_resolution_clock::duration((long) (elapsedTime * 1000 * 1000));
+	return end - start;
 }
