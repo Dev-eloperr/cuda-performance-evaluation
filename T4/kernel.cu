@@ -9,6 +9,7 @@
 #include "VectorAdditionBenchmarker.h"
 #include "FastFourierTransformBenchmarker.h"
 #include "LinearSearch.h"
+#include "GrayscaleBenchmarker.h"
 
 namespace {
 	template <typename T>
@@ -30,5 +31,8 @@ int main() {
 	runBenchmark<VectorAdditionBenchmarker>("Vector addition");
 	runBenchmark<FastFourierTransformBenchmarker>("Fast fourier transform");
 	runBenchmark<LinearSearch>("Linear Search");
+	std::cout  << "Running Conversion from RGB to Grayscale" << std::endl;
+	GrayscaleBenchmarker grayscale(50, 1);
+	grayscale.benchmark();
 }
 
